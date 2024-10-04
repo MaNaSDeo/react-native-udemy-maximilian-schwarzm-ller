@@ -14,12 +14,18 @@ export default function App() {
       ...currentGoals,
       { text: enteredGoalText, id: Date.now() },
     ]);
+    setModalVisible(false);
   }
 
   function deleteGoalHandler(id) {
     setCourseGoals((prev) => {
       return prev.filter((goal) => goal.id !== id);
     });
+  }
+
+  function endAddGoalHandler() {
+    console.log("endAddGoalHandler");
+    setModalVisible(false);
   }
 
   return (
@@ -29,7 +35,11 @@ export default function App() {
         color="#5e0acc"
         onPress={() => setModalVisible(true)}
       />
-      <GoalInput addGoal={addGoalHandler} isVisible={modalVisible} />
+      <GoalInput
+        addGoal={addGoalHandler}
+        isVisible={modalVisible}
+        onCancel={endAddGoalHandler}
+      />
       <View style={styles.goalsContainer}>
         {/* <ScrollView>
           {courseGoals.map((goal, index) => (
