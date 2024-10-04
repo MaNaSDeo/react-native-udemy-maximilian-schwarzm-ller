@@ -5,7 +5,7 @@ import GoalInput from "./Components/GoalInput";
 
 export default function App() {
   const [courseGoals, setCourseGoals] = useState([]);
-  console.log("courseGoals", courseGoals);
+  // console.log("courseGoals", courseGoals);
 
   function addGoalHandler(enteredGoalText) {
     console.log("enteredGoalText", enteredGoalText);
@@ -13,6 +13,12 @@ export default function App() {
       ...currentGoals,
       { text: enteredGoalText, id: Date.now() },
     ]);
+  }
+
+  function deleteGoalHandler(id) {
+    setCourseGoals((prev) => {
+      return prev.filter((goal) => goal.id !== id);
+    });
   }
 
   return (
@@ -29,7 +35,13 @@ export default function App() {
         <FlatList
           data={courseGoals}
           renderItem={(itemData) => {
-            return <GoalItem text={itemData.item.text} />;
+            return (
+              <GoalItem
+                text={itemData.item.text}
+                id={itemData.item.id}
+                deleteGoal={deleteGoalHandler}
+              />
+            );
           }}
           keyExtractor={(item, index) => {
             return item.id;
