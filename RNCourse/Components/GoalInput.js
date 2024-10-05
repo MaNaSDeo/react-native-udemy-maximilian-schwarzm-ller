@@ -12,7 +12,7 @@ function GoalInput(props) {
   const [enteredGoalText, setEnteredGoalText] = useState("");
 
   function goalInputHandler(enteredText) {
-    // console.log("enteredText", enteredText);
+    console.log("enteredText", enteredText);
     setEnteredGoalText(enteredText);
   }
 
