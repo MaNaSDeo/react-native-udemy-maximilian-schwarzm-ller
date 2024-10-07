@@ -1,9 +1,11 @@
-import { Text, View, StyleSheet, Alert } from "react-native";
+import { View, StyleSheet, Alert } from "react-native";
 import { useEffect, useState } from "react";
 
 import Title from "../Components/UI/Title";
 import NumberContainer from "../Components/Game/NumberContainer";
 import PrimaryButton from "../Components/UI/PrimaryButton";
+import InstuctionText from "../Components/UI/InstuctionText";
+import Card from "../Components/UI/Card";
 
 interface GameScreenProps {
   userNumber: number;
@@ -29,7 +31,6 @@ function GameScreen({ userNumber, onGameOver }: GameScreenProps) {
   }, [currentGuess, userNumber, onGameOver]);
 
   function nextGuessHandler(direction: "lower" | "greater") {
-    console.log("nextGuessHandler");
     if (
       (direction === "lower" && currentGuess < userNumber) ||
       (direction === "greater" && currentGuess > userNumber)
@@ -57,17 +58,21 @@ function GameScreen({ userNumber, onGameOver }: GameScreenProps) {
       <Title>Opponent's Guess</Title>
       {/* Guesss */}
       <NumberContainer>{currentGuess}</NumberContainer>
-      <View>
-        <Text>Higher or Lower?</Text>
-        <View>
-          <PrimaryButton onPress={() => nextGuessHandler("lower")}>
-            -
-          </PrimaryButton>
-          <PrimaryButton onPress={() => nextGuessHandler("greater")}>
-            +
-          </PrimaryButton>
+      <Card>
+        <InstuctionText>Higher or Lower?</InstuctionText>
+        <View style={styles.buttonsContainer}>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={() => nextGuessHandler("lower")}>
+              -
+            </PrimaryButton>
+          </View>
+          <View style={styles.buttonContainer}>
+            <PrimaryButton onPress={() => nextGuessHandler("greater")}>
+              +
+            </PrimaryButton>
+          </View>
         </View>
-      </View>
+      </Card>
       <View>{/* Log Rounds */}</View>
     </View>
   );
@@ -77,6 +82,14 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     padding: 24,
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  buttonContainer: {
+    flex: 1,
   },
 });
 
