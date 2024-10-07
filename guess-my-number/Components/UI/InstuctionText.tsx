@@ -3,10 +3,11 @@ import Colors from "../../Constants/colors";
 
 interface InstuctionTextProps {
   children: string;
+  style?: any;
 }
 
-const InstuctionText = ({ children }: InstuctionTextProps) => {
-  return <Text style={styles.instructionText}>{children}</Text>;
+const InstuctionText = ({ children, style }: InstuctionTextProps) => {
+  return <Text style={[styles.instructionText, style]}>{children}</Text>;
 };
 
 const styles = StyleSheet.create({
