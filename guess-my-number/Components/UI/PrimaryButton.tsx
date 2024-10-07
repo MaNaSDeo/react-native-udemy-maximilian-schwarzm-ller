@@ -8,7 +8,6 @@ interface PrimaryButtonProps {
 
 function PrimaryButton({ children, onPress }: PrimaryButtonProps) {
   function pressHandler() {
-    console.log("Pressed!");
     onPress?.(); //optional chaining to safely call onPress
   }
 
