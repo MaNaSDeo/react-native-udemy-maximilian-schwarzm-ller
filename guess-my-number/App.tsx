@@ -13,14 +13,14 @@ import GameScreen from "./screens/GameScreen";
 import Colors from "./Constants/colors";
 
 export default function App() {
-  const [userNumber, setUserNumber] = useState<number | null>(7);
+  const [userNumber, setUserNumber] = useState<number | null>(null);
 
   const pickedNumberHandler = (pickedNumber: number) => {
     setUserNumber(pickedNumber);
   };
 
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />;
-  if (userNumber) screen = <GameScreen />;
+  if (userNumber) screen = <GameScreen userNumber={userNumber} />;
 
   return (
     <LinearGradient
