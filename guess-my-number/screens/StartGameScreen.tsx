@@ -7,6 +7,7 @@ import {
   ScrollView,
   Dimensions,
   useWindowDimensions,
+  Platform,
 } from "react-native";
 import { useState } from "react";
 import PrimaryButton from "../Components/UI/PrimaryButton";
