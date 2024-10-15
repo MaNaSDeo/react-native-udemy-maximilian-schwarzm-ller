@@ -5,6 +5,8 @@ import {
   Alert,
   KeyboardAvoidingView,
   ScrollView,
+  Dimensions,
+  useWindowDimensions,
 } from "react-native";
 import { useState } from "react";
 import PrimaryButton from "../Components/UI/PrimaryButton";
@@ -17,8 +19,12 @@ interface StartGameScreenProps {
   onPickNumber: (pickedNumber: number) => void;
 }
 
+const { height } = Dimensions.get("window");
+const marginTopDistance = height < 380 ? 30 : 100;
+
 function StartGameScreen({ onPickNumber }: StartGameScreenProps) {
   const [enteredNumber, setEnteredNumber] = useState<string>("");
+  const { width, height } = useWindowDimensions();
 
   const numberInputHandler = (enteredText: string) => {
     setEnteredNumber(enteredText);
@@ -43,7 +49,7 @@ function StartGameScreen({ onPickNumber }: StartGameScreenProps) {
     onPickNumber(chosenNumber);
   };
 
-  // const marginTopDistance = height < 380 ? 30 :100
+  // const marginTopDistance = height < 380 ? 30 : 100;
 
   return (
     <ScrollView style={styles.screen}>
@@ -83,7 +89,8 @@ const styles = StyleSheet.create({
   screen: { flex: 1 },
   rootContainer: {
     flex: 1,
-    marginTop: 100,
+    // marginTop: 100,
+    marginTop: marginTopDistance,
     alignItems: "center",
   },
   numberInput: {
