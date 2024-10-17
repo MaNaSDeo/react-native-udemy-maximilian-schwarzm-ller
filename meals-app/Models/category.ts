@@ -11,11 +11,7 @@ export default Category;
 */
 
 // Interface for the Category class
-export interface ICategory {
-  id: string;
-  title: string;
-  color: string;
-}
+import { type ICategory } from "../types";
 
 class Category implements ICategory {
   constructor(public id: string, public title: string, public color: string) {}
