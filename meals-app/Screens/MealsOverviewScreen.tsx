@@ -1,10 +1,15 @@
-import React from "react";
+import { type NativeStackScreenProps } from "@react-navigation/native-stack";
+import React, { FC } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { type RootStackParamList } from "../types";
 
-const MealsOverviewScreen = () => {
+type Props = NativeStackScreenProps<RootStackParamList, "MealsOverview">;
+
+const MealsOverviewScreen: FC<Props> = ({ route }) => {
+  const catId = route.params.categoryId;
   return (
     <View style={styles.container}>
-      <Text>MealsOverviewScreen</Text>
+      <Text>MealsOverviewScreen - {catId}</Text>
     </View>
   );
 };

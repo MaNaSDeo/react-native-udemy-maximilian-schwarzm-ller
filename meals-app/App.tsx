@@ -14,9 +14,23 @@ const App: FC = () => {
     <>
       <StatusBar style="light" />
       <NavigationContainer>
-        <Stack.Navigator initialRouteName="MealCategories">
-          <Stack.Screen name="MealsOverview" component={MealsOverviewScreen} />
-          <Stack.Screen name="MealCategories" component={CategoriesScreen} />
+        <Stack.Navigator
+          initialRouteName="MealCategories"
+          screenOptions={{
+            headerTintColor: "white",
+            headerStyle: { backgroundColor: "tomato" },
+          }}
+        >
+          <Stack.Screen
+            name="MealsOverview"
+            component={MealsOverviewScreen}
+            options={{ title: "Meals Overview" }}
+          />
+          <Stack.Screen
+            name="MealCategories"
+            component={CategoriesScreen}
+            options={{ title: "Meal Categories" }}
+          />
         </Stack.Navigator>
         {/* <CategoriesScreen /> */}
       </NavigationContainer>

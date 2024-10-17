@@ -1,25 +1,26 @@
 import React, { FC } from "react";
-import { FlatList, type ListRenderItemInfo } from "react-native";
-import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { FlatList, type ListRenderItem } from "react-native";
+import { type NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { CATEGORIES } from "../Data/dummy-data";
 import CategoryGridTile from "../Components/CategoryGridTile";
-import { type ICategory } from "../types";
-import { type RootStackParamList } from "../types";
+import { type ICategory, type RootStackParamList } from "../types";
 
 type CategoriesScreenProps = {
   navigation: NativeStackNavigationProp<RootStackParamList, "MealsOverview">;
 };
 
 const CategoriesScreen: FC<CategoriesScreenProps> = ({ navigation }) => {
-  const renderCategoryItem = (itemData: ListRenderItemInfo<ICategory>) => {
+  const renderCategoryItem: ListRenderItem<ICategory> = ({ item }) => {
     function pressHandler() {
-      navigation.navigate("MealsOverview");
+      navigation.navigate("MealsOverview", {
+        categoryId: item.id,
+      });
     }
 
     return (
       <CategoryGridTile
-        title={itemData.item.title}
-        color={itemData.item.color}
+        title={item.title}
+        color={item.color}
         onPress={pressHandler}
       />
     );
