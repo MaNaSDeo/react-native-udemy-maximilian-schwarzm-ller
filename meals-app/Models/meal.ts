@@ -33,26 +33,7 @@ class Meal {
 
 export default Meal;
 */
-// Define the type for affordability and complexity
-export type Affordability = "affordable" | "pricey" | "luxurious";
-export type Complexity = "simple" | "challenging" | "hard";
-
-// Interface for the Meal class
-export interface IMeal {
-  id: string;
-  categoryIds: string[];
-  title: string;
-  affordability: Affordability;
-  complexity: Complexity;
-  imageUrl: string;
-  duration: number;
-  ingredients: string[];
-  steps: string[];
-  isGlutenFree: boolean;
-  isVegan: boolean;
-  isVegetarian: boolean;
-  isLactoseFree: boolean;
-}
+import { type Affordability, type Complexity, type IMeal } from "../types";
 
 // Class definitions with TypeScript
 class Meal implements IMeal {
