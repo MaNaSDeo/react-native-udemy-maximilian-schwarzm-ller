@@ -18,18 +18,22 @@ const App: FC = () => {
           initialRouteName="MealCategories"
           screenOptions={{
             headerTintColor: "white",
-            headerStyle: { backgroundColor: "tomato" },
+            headerStyle: { backgroundColor: "#351401" },
+            contentStyle: { backgroundColor: "#3f2f25" },
           }}
         >
           <Stack.Screen
             name="MealsOverview"
             component={MealsOverviewScreen}
-            options={{ title: "Meals Overview" }}
+            // options={({ route, navigation }) => {
+            //   const catId = route.params.categoryId;
+            //   return { title: catId };
+            // }}
           />
           <Stack.Screen
             name="MealCategories"
             component={CategoriesScreen}
-            options={{ title: "Meal Categories" }}
+            options={{ title: "All Categories" }}
           />
         </Stack.Navigator>
         {/* <CategoriesScreen /> */}
