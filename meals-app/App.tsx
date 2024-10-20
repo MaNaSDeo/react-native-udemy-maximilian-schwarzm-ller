@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CategoriesScreen from "./Screens/CategoriesScreen";
 import MealsOverviewScreen from "./Screens/MealsOverviewScreen";
 import { type RootStackParamList } from "./types";
+import MealDetailScreen from "./Screens/MealDetailScreen";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -16,6 +17,7 @@ const App: FC = () => {
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="MealCategories"
+          // initialRouteName="MealDetail"
           screenOptions={{
             headerTintColor: "white",
             headerStyle: { backgroundColor: "#351401" },
@@ -35,6 +37,7 @@ const App: FC = () => {
             component={CategoriesScreen}
             options={{ title: "All Categories" }}
           />
+          {/* <Stack.Screen name="MealDetail" component={MealDetailScreen} /> */}
         </Stack.Navigator>
         {/* <CategoriesScreen /> */}
       </NavigationContainer>

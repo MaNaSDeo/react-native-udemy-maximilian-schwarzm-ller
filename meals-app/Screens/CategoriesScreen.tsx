@@ -12,9 +12,10 @@ type CategoriesScreenProps = {
 const CategoriesScreen: FC<CategoriesScreenProps> = ({ navigation }) => {
   const renderCategoryItem: ListRenderItem<ICategory> = ({ item }) => {
     function pressHandler() {
-      navigation.navigate("MealsOverview", {
-        categoryId: item.id,
-      });
+      // navigation.navigate("MealsOverview", {
+      //   categoryId: item.id,
+      // });
+      navigation.navigate("MealCategories");
     }
 
     return (
