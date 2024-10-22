@@ -7,6 +7,7 @@ export interface ICategory {
 export type RootStackParamList = {
   MealCategories: undefined;
   MealsOverview: { categoryId: string };
+  MealDetail: { mealId: string };
 };
 
 // Define the type for affordability and complexity

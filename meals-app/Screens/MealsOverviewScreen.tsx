@@ -26,6 +26,7 @@ const MealsOverviewScreen: FC<Props> = ({ route, navigation }) => {
 
   const renderMealItem: ListRenderItem<IMeal> = ({ item }) => {
     const mealItemProps = {
+      id: item.id,
       title: item.title,
       imageUrl: item.imageUrl,
       duration: item.duration,
