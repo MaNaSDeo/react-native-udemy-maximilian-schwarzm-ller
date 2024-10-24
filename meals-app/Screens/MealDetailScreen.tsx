@@ -13,6 +13,7 @@ import { MEALS } from "../Data/dummy-data";
 import MealDetails from "../Components/MealDetails";
 import Subtitle from "../Components/MealDetail/Subtitle";
 import List from "../Components/MealDetail/List";
+import IconButton from "../Components/IconButton";
 
 type Props = NativeStackScreenProps<RootStackParamList, "MealDetail">;
 
@@ -27,7 +28,14 @@ const MealDetailScreen: FC<Props> = ({ route, navigation }) => {
   useLayoutEffect(() => {
     navigation.setOptions({
       headerRight: () => {
-        return <Button title="Tap me!" onPress={headerButtonPressHandler} />;
+        // return <Button title="Tap me!" onPress={headerButtonPressHandler} />;
+        return (
+          <IconButton
+            icon="star"
+            color="white"
+            onPress={headerButtonPressHandler}
+          />
+        );
       },
     });
   }, [navigation, headerButtonPressHandler]); // Re-run effect if navigation object changes or if button handler updates
