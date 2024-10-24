@@ -39,11 +39,11 @@ const App: FC = () => {
           <Stack.Screen
             name="MealDetail"
             component={MealDetailScreen}
-            options={{
-              headerRight: () => {
-                return <Button title="Tap me!" />;
-              },
-            }}
+            // options={{
+            //   headerRight: () => {
+            //     return <Button title="Tap me!" />;
+            //   },
+            // }}
           />
         </Stack.Navigator>
         {/* <CategoriesScreen /> */}

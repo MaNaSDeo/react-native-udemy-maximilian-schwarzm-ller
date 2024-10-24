@@ -1,6 +1,13 @@
 import { type NativeStackScreenProps } from "@react-navigation/native-stack";
-import React, { type FC } from "react";
-import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import React, { type FC, useLayoutEffect } from "react";
+import {
+  Button,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { type RootStackParamList } from "../types";
 import { MEALS } from "../Data/dummy-data";
 import MealDetails from "../Components/MealDetails";
@@ -9,9 +16,21 @@ import List from "../Components/MealDetail/List";
 
 type Props = NativeStackScreenProps<RootStackParamList, "MealDetail">;
 
-const MealDetailScreen: FC<Props> = ({ route }) => {
+const MealDetailScreen: FC<Props> = ({ route, navigation }) => {
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
+
+  function headerButtonPressHandler() {
+    console.log("Pressed!");
+  }
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => {
+        return <Button title="Tap me!" onPress={headerButtonPressHandler} />;
+      },
+    });
+  }, [navigation, headerButtonPressHandler]); // Re-run effect if navigation object changes or if button handler updates
 
   // Handle case where meal is not found
   if (!selectedMeal) {
