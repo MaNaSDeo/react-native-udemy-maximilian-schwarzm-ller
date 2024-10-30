@@ -3,10 +3,10 @@ import { FlatList, type ListRenderItem } from "react-native";
 import { type NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { CATEGORIES } from "../Data/dummy-data";
 import CategoryGridTile from "../Components/CategoryGridTile";
-import { type ICategory, type RootStackParamList } from "../types";
+import { type ICategory, type StackParamList } from "../types";
 
 type CategoriesScreenProps = {
-  navigation: NativeStackNavigationProp<RootStackParamList, "MealsOverview">;
+  navigation: NativeStackNavigationProp<StackParamList, "MealsOverview">;
 };
 
 const CategoriesScreen: FC<CategoriesScreenProps> = ({ navigation }) => {

@@ -1,21 +1,14 @@
 import { type NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { type FC, useLayoutEffect } from "react";
-import {
-  Button,
-  Image,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
-import { type RootStackParamList } from "../types";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { type StackParamList } from "../types";
 import { MEALS } from "../Data/dummy-data";
 import MealDetails from "../Components/MealDetails";
 import Subtitle from "../Components/MealDetail/Subtitle";
 import List from "../Components/MealDetail/List";
 import IconButton from "../Components/IconButton";
 
-type Props = NativeStackScreenProps<RootStackParamList, "MealDetail">;
+type Props = NativeStackScreenProps<StackParamList, "MealDetail">;
 
 const MealDetailScreen: FC<Props> = ({ route, navigation }) => {
   const mealId = route.params.mealId;

@@ -5,7 +5,7 @@ interface Props {
   duration: number;
   complexity: string;
   affordability: string;
-  textStyle: any;
+  textStyle?: any;
 }
 
 const MealDetails: FC<Props> = ({

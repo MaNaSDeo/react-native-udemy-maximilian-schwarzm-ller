@@ -4,10 +4,18 @@ export interface ICategory {
   color: string;
 }
 
-export type RootStackParamList = {
+// Define the types for the Stack Navigator
+export type StackParamList = {
   MealCategories: undefined;
   MealsOverview: { categoryId: string };
   MealDetail: { mealId: string };
+  Drawer: undefined;
+};
+
+// Define the export s for the Drawer Navigator
+export type DrawerParamList = {
+  Categories: undefined;
+  Favorites: undefined;
 };
 
 // Define the type for affordability and complexity

@@ -1,11 +1,11 @@
 import { type NativeStackScreenProps } from "@react-navigation/native-stack";
 import React, { type FC, useLayoutEffect } from "react";
 import { StyleSheet, FlatList, View, ListRenderItem } from "react-native";
-import { type RootStackParamList, type IMeal } from "../types";
+import { type StackParamList, type IMeal } from "../types";
 import { MEALS, CATEGORIES } from "../Data/dummy-data";
 import MealItem from "../Components/MealItem";
 
-type Props = NativeStackScreenProps<RootStackParamList, "MealsOverview">;
+type Props = NativeStackScreenProps<StackParamList, "MealsOverview">;
 
 const MealsOverviewScreen: FC<Props> = ({ route, navigation }) => {
   const catId = route.params.categoryId;

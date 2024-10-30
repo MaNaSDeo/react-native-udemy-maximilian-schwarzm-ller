@@ -9,7 +9,7 @@ import {
   View,
   Platform,
 } from "react-native";
-import { RootStackParamList } from "../types";
+import { StackParamList } from "../types";
 import MealDetails from "./MealDetails";
 
 interface Props {
@@ -20,7 +20,7 @@ interface Props {
   complexity: string;
   affordability: string;
 }
-type NavigateProp = NativeStackNavigationProp<RootStackParamList>;
+type NavigateProp = NativeStackNavigationProp<StackParamList>;
 
 const MealItem: FC<Props> = ({
   id,
