@@ -4,7 +4,8 @@ import { type UserScreenProps } from "../App";
 
 const UserScreen: FC<UserScreenProps> = ({ navigation }) => {
   function openDrawerHandler() {
-    navigation.toggleDrawer();
+    // navigation.toggleDrawer();
+    navigation.navigate("Welcome"); // To switch to welcome screen.
   }
   return (
     <View style={styles.rootContainer}>
