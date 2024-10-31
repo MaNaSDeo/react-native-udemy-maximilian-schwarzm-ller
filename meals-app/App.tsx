@@ -10,7 +10,11 @@ import MealsOverviewScreen from "./Screens/MealsOverviewScreen";
 import MealDetailScreen from "./Screens/MealDetailScreen";
 import FavoritesScreen from "./Screens/FavoritesScreen";
 import { Ionicons } from "@expo/vector-icons";
-import FavoritesContextProvider from "./store/context/favorites-context";
+// Context API
+// import FavoritesContextProvider from "./store/context/favorites-context";
+// Redux
+import { Provider } from "react-redux";
+import { store } from "./store/redux/store";
 
 const Stack = createNativeStackNavigator<StackParamList>();
 const Drawer = createDrawerNavigator<DrawerParamList>();
@@ -55,7 +59,8 @@ const App: FC = () => {
   return (
     <>
       <StatusBar style="light" />
-      <FavoritesContextProvider>
+      {/* <FavoritesContextProvider> */}
+      <Provider store={store}>
         <NavigationContainer>
           <Stack.Navigator
             // initialRouteName="MealCategories"
@@ -85,7 +90,8 @@ const App: FC = () => {
             />
           </Stack.Navigator>
         </NavigationContainer>
-      </FavoritesContextProvider>
+        {/* </FavoritesContextProvider> */}
+      </Provider>
     </>
   );
 };
