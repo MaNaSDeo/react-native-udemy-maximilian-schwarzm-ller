@@ -1,5 +1,5 @@
 import { type NativeStackScreenProps } from "@react-navigation/native-stack";
-import React, { type FC, useLayoutEffect } from "react";
+import React, { type FC, useLayoutEffect, useContext } from "react";
 import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
 import { type StackParamList } from "../types";
 import { MEALS } from "../Data/dummy-data";
@@ -7,6 +7,7 @@ import MealDetails from "../Components/MealDetails";
 import Subtitle from "../Components/MealDetail/Subtitle";
 import List from "../Components/MealDetail/List";
 import IconButton from "../Components/IconButton";
+import { FavoritesContext } from "../store/context/favorites-context";
 
 type Props = NativeStackScreenProps<StackParamList, "MealDetail">;
 
@@ -14,8 +15,13 @@ const MealDetailScreen: FC<Props> = ({ route, navigation }) => {
   const mealId = route.params.mealId;
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
-  function headerButtonPressHandler() {
-    console.log("Pressed!");
+  const { favorites, removeFavorite, addFavorite } =
+    useContext(FavoritesContext);
+  const mealIsFavorite = favorites.includes(mealId);
+
+  function changeFavoriteStatusHandler() {
+    if (mealIsFavorite) removeFavorite(mealId);
+    else addFavorite(mealId);
   }
 
   useLayoutEffect(() => {
@@ -24,14 +30,14 @@ const MealDetailScreen: FC<Props> = ({ route, navigation }) => {
         // return <Button title="Tap me!" onPress={headerButtonPressHandler} />;
         return (
           <IconButton
-            icon="star"
+            icon={mealIsFavorite ? "star" : "star-outline"}
             color="white"
-            onPress={headerButtonPressHandler}
+            onPress={changeFavoriteStatusHandler}
           />
         );
       },
     });
-  }, [navigation, headerButtonPressHandler]); // Re-run effect if navigation object changes or if button handler updates
+  }, [navigation, changeFavoriteStatusHandler]); // Re-run effect if navigation object changes or if button handler updates
 
   // Handle case where meal is not found
   if (!selectedMeal) {
