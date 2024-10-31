@@ -14,7 +14,7 @@ import { Ionicons } from "@expo/vector-icons";
 // import FavoritesContextProvider from "./store/context/favorites-context";
 // Redux
 import { Provider } from "react-redux";
-import { store } from "./store/redux/store";
+import { store } from "./store/redux";
 
 const Stack = createNativeStackNavigator<StackParamList>();
 const Drawer = createDrawerNavigator<DrawerParamList>();
