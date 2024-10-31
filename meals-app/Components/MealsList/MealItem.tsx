@@ -9,8 +9,8 @@ import {
   View,
   Platform,
 } from "react-native";
-import { StackParamList } from "../types";
-import MealDetails from "./MealDetails";
+import { StackParamList } from "../../types";
+import MealDetails from "../MealDetails";
 
 interface Props {
   id: string;
