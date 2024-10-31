@@ -3,9 +3,14 @@ import { StyleSheet, Text, View } from "react-native";
 import { FavoritesContext } from "../store/context/favorites-context";
 import { MEALS } from "../Data/dummy-data";
 import MealsList from "../Components/MealsList/MealsList";
+import { useAppSelector } from "../store/redux/hooks";
+import { RootState } from "../store/redux";
 
 const FavoritesScreen = () => {
-  const { favorites } = useContext(FavoritesContext);
+  // const { favorites } = useContext(FavoritesContext);
+  const { favorites } = useAppSelector(
+    (state: RootState) => state.favoriteMeals
+  );
 
   const favoriteMeals = MEALS.filter((meal) => favorites.includes(meal.id));
 
